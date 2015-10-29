@@ -29,6 +29,7 @@ What do you end up with?
 * hrrr_u_tiles - a tileset of the u vector of the wind
 * hrrr_v_tiles - a tileset of the v vector of the wind
 * mrms - a radar tileset from mrms data
+![ScreenShot](/screenshots/mrmsradar.png)
 
 
 ## Advanced modifications
