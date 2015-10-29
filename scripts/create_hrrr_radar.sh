@@ -12,7 +12,7 @@ GRIBNAME=$1
 #83:80466128:d=2015102917:REFD Reflectivity [dB]:1000 m above ground:60 min fcst:
 
 
-gdaldem color-relief -b 83 $GRIBNAME -alpha palettes/radar_pal.txt -of VRT hrrr.vrt
-#python ./gdal2tiles.py -r bilinear  -z 0-9 hrrr.vrt hrrr
-python ./gdal2tiles.py -r bilinear  hrrr.vrt hrrr
-rm -f hrrr.vrt
+gdaldem color-relief -b 83 $GRIBNAME -alpha palettes/radar_pal.txt -of VRT output/hrrr.vrt
+#python ./gdal2tiles.py -r bilinear  -z 0-9 output/hrrr.vrt output/hrrr
+python ./gdal2tiles.py -r bilinear  output/hrrr.vrt output/hrrr
+rm -f output/hrrr.vrt

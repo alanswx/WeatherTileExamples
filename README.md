@@ -19,7 +19,12 @@ These examples rely on Vagrant and VirtualBox to run a Centos 7 environment whic
 
 What do you end up with?
 
-* 
+* hrrr - a directory that has a tileset of the composite reflectivity plotted with alpha, that looks like future radar
+* wind vectors split by component. Take a look at this page for more information: [Wind: u and v Components](http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html)
+* hrrr_u_tiles - a tileset of the u vector of the wind
+* hrrr_v_tiles - a tileset of the v vector of the wind
+* mrms - a radar tileset from mrms data
+
 
 ## Advanced modifications
 
@@ -27,7 +32,7 @@ What do you end up with?
 Modify this line in create_hrrr_radar.sh:
 
  ```bash
-	python ./gdal2tiles.py -r bilinear -z 0-9 hrrr.vrt hrrr
+	python ./gdal2tiles.py -r bilinear -z 0-9 output/hrrr.vrt output/hrrr
  ```
   z is the number of z levels for the tiles. If you want it to create a higher resolution set of tiles, try this command instead.
  
