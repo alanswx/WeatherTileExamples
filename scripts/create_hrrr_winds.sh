@@ -6,6 +6,9 @@ GRIBNAME=$1
 # 14 and 15 are the two layers of wind we will use to plot -- you can use  wgrib to look at the grib and see if you want to plot something else
 #
 
+# this will print out all the variables in this file
+wgrib2 -v $GRIBNAME
+
 #14:10481048:d=2015092203:UGRD:10 m above ground:15 min fcst:
 #15:11792425:d=2015092203:VGRD:10 m above ground:15 min fcst:
 
