@@ -5,8 +5,8 @@ This is a simple set of examples that will show you how to take some of the newe
 
 These examples rely on Vagrant and VirtualBox to run a Centos 7 environment which we will use yum to install gdal.  Centos 7 with the epel gives us a reasonable install of gdal (version >= 1.11.2). We need this new of a version to handle opening the MRMS gz file without gzipping them (using a virtual file system) and for the alpha to work correctly with our palette.
 
-##Steps:
-======
+## Steps:
+
 
 1. Install [Vagrant](https://docs.vagrantup.com/v2/installation/) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. clone this repository
@@ -17,14 +17,14 @@ These examples rely on Vagrant and VirtualBox to run a Centos 7 environment whic
 7. type `./download_latest_hrrr.sh` to download and create 3 tile sets from the latest version of HRRR model
 8. type `./download_latest_mrms.sh` to download and create a tile set from the latest version of MRMS
 
-##Advanced modifications
-=========
+## Advanced modifications
 
-###More tile levels
+### More tile levels
 Modify this line in create_hrrr_radar.sh:
- 
+
+ ```bash
 	python ./gdal2tiles.py -r bilinear -z 0-9 hrrr.vrt hrrr
- 
+ ```
   z is the number of z levels for the tiles. If you want it to create a higher resolution set of tiles, try this command instead.
  
 ####Change the Palettes
