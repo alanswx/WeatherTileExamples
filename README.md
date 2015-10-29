@@ -19,6 +19,11 @@ These examples rely on Vagrant and VirtualBox to run a Centos 7 environment whic
 
 What do you end up with?
 
+##### `data` directory
+
+* MRMS and HRRR model files
+
+#### `output` directory
 * hrrr - a directory that has a tileset of the composite reflectivity plotted with alpha, that looks like future radar
 * wind vectors split by component. Take a look at this page for more information: [Wind: u and v Components](http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html)
 * hrrr_u_tiles - a tileset of the u vector of the wind
