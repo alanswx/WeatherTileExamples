@@ -24,12 +24,11 @@ What do you end up with?
 * MRMS and HRRR model files
 
 #### `output` directory
-* hrrr - a directory that has a tileset of the composite reflectivity plotted with alpha, that looks like future radar
+* hrrr - a directory that has a tileset of the composite reflectivity plotted with alpha, that looks like future radar ![HRR Wind ScreenShot](/examplescreenshots/hrrrradar.png)
 * wind vectors split by component. Take a look at this page for more information: [Wind: u and v Components](http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html)
-* hrrr_u_tiles - a tileset of the u vector of the wind
+* hrrr_u_tiles - a tileset of the u vector of the wind  ![HRR Wind ScreenShot](/examplescreenshots/hrrrwind.png)
 * hrrr_v_tiles - a tileset of the v vector of the wind
-* mrms - a radar tileset from mrms data
-![ScreenShot](/screenshots/mrmsradar.png)
+* mrms - a radar tileset from mrms data ![MRMS Radar ScreenShot](/examplescreenshots/mrmsradar.png)
 
 
 ## Advanced modifications
