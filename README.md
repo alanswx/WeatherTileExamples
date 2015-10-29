@@ -17,6 +17,10 @@ These examples rely on Vagrant and VirtualBox to run a Centos 7 environment whic
 7. type `./download_latest_hrrr.sh` to download and create 3 tile sets from the latest version of HRRR model
 8. type `./download_latest_mrms.sh` to download and create a tile set from the latest version of MRMS
 
+What do you end up with?
+
+* 
+
 ## Advanced modifications
 
 ### More tile levels
