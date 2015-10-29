@@ -9,5 +9,5 @@ wget -N -c $URL$FILE
 echo "run command and pass $FILE "
 
 echo "create radar from $FILE "
-#./create_mrms_radar.sh  $FILE
+./create_mrms_tiles.sh $FILE mrms
 

@@ -12,10 +12,10 @@ then
   file=/vsigzip/${file}
 fi
 
-gdaldem color-relief  $file  -alpha radar_pal.txt -of VRT now.vrt 
+gdaldem color-relief  $file  -alpha palettes/radar_pal.txt -of VRT now.vrt 
 #python ./gdal2tiles.py -r bilinear  -z 0-9 now.vrt $2 
 python ./gdal2tiles.py -r bilinear  now.vrt $2 
-echo $1 > $2/source.txt
+#echo $1 > $2/source.txt
 rm now.vrt
 
 #gdaldem color-relief MRMS_SeamlessHSR_00.00_20150921-030000.grib2 -alpha seamramp3.txt -of PNG o.png

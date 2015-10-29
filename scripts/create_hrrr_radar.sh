@@ -13,5 +13,6 @@ GRIBNAME=$1
 
 
 gdaldem color-relief -b 83 $GRIBNAME -alpha palettes/radar_pal.txt -of VRT hrrr.vrt
-python ./gdal2tiles.py -r bilinear  -z 0-9 hrrr.vrt hrrr
+#python ./gdal2tiles.py -r bilinear  -z 0-9 hrrr.vrt hrrr
+python ./gdal2tiles.py -r bilinear  hrrr.vrt hrrr
 rm -f hrrr.vrt

@@ -4,8 +4,13 @@
   sudo: yes
   tasks:
 
-    - name: install epel
-      action: command creates=/etc/yum.repos.d/epel.repo rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+#    - name: install epel
+#      action: command creates=/etc/yum.repos.d/epel.repo rpm -Uvh http://download.fedoraproject.org/pub/epel/7/i386/epel-release-7-0.noarch.rpm
+
+    - name: install epel release for the rest of the packages
+      action: yum pkg={{item}} state=installed
+      with_items:
+        - epel-release
 
     - name: make sure packages are installed
       action: yum pkg={{item}} state=installed
