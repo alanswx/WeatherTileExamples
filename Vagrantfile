@@ -13,9 +13,9 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   #config.vm.box = "puppetlabs/centos-6.6-64-puppet"
-  #config.vm.box = "centos/7"
+  config.vm.box = "centos/7"
   #config.vm.box = "puppetlabs/centos-7.0-64-puppet"
-  config.vm.box = "magmadigital/centos-7.0"
+  #config.vm.box = "magmadigital/centos-7.0"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -71,7 +71,10 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  config.vm.provision "ansible" do |ansible|
-       ansible.playbook = "noaatiles.yml"
+  #config.vm.provision "ansible" do |ansible|
+  #     ansible.playbook = "noaatiles.yml"
+  #end
+  config.vm.provision "shell" do |shell|
+       shell.path= "noaatiles.sh"
   end
 end
