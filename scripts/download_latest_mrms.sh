@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir -p data
+mkdir -p output
+
 URL=http://mrms.ncep.noaa.gov/data/2D/SeamlessHSR/
 echo $URL
 FILE=`curl $URL | grep "grib2.gz" |  tail -n 1 | cut -f 2 -d \"`
