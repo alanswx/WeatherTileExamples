@@ -1,11 +1,26 @@
 # WeatherTileExamples
-Simple examples to make tilesets for your favorite mapping system that likes tiles.
+Simple examples to make tilesets for your favorite mapping system.
 
 This is a simple set of examples that will show you how to take some of the newest, coolest NOAA products and turn them into tile sets for use in a web map mashup, or with WhirlyGlobe-Maply.
 
 These examples rely on Vagrant and VirtualBox to run a Centos 7 environment which we will use yum to install gdal.  Centos 7 with the epel gives us a reasonable install of gdal (version >= 1.11.2). We need this new of a version to handle opening the MRMS gz file without gzipping them (using a virtual file system) and for the alpha to work correctly with our palette.
 
-## Steps:
+
+## About the data
+
+### Multi Radar Multi Sensor (MRMS)
+
+[MRMS](http://www.nssl.noaa.gov/projects/mrms/) is a software product built by the University of Oklahoma that is now being run in real time by the National Weather Service. The data can be retrieved by [LDM](https://docs.google.com/document/d/1LeVcn_taIXZgzZb5JgWqaVr0xVs7GmA6RpHcb8ZGiwk/edit) or [HTTP](http://mrms.ncep.noaa.gov/data/).
+
+There are a number of interesting data products with MRMS including 3D slices of the atmosphere, lightning, hail, etc. We will show how to plot Reflectivity (Radar).
+
+
+### High Resolution Rapid Refresh (HRRR)
+
+
+[HRRR](http://ruc.noaa.gov/hrrr/) is a high resolution model that is run by NCEP and is updated very often. It can be found via [NCEP NOMADS HTTP](http://nomads.ncep.noaa.gov/). We will look at the wind forecast, and composite reflectivity forecast (simulated Radar)
+
+## Steps to convert the data
 
 
 1. Install [Vagrant](https://docs.vagrantup.com/v2/installation/) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
