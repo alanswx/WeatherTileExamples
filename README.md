@@ -14,8 +14,8 @@ These examples rely on Vagrant and VirtualBox to run a Centos 7 environment whic
 4. vagrant will load a centos image, and boot it. It will run the shell provisioner noaatiles.sh to install gdal, python bindings, and wgrib2
 5. type `vagrant ssh` to get into the VM
 6. type `cd vagrant_data` - this will put you in the scripts directory
-7. type `./download_latest_hrrr.sh` to download and create 3 tile sets from the latest version of HRRR model
-8. type `./download_latest_mrms.sh` to download and create a tile set from the latest version of MRMS
+7. type `./download_latest_hrrr.sh` to download and create 3 tile sets from the latest HRRR model
+8. type `./download_latest_mrms.sh` to download and create a tile set from the latest MRMS
 
 What do you end up with?
 
