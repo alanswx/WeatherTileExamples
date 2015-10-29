@@ -1,0 +1,49 @@
+---
+- hosts: all
+  user: vagrant
+  sudo: yes
+  tasks:
+
+#    - name: install epel
+#      action: command creates=/etc/yum.repos.d/epel.repo rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+#
+#    - name: make sure packages are installed
+#      action: yum pkg={{item}} state=installed
+#      with_items:
+#        - vim
+#        - netcdf
+#        - netcdf-devel
+#        - jasper
+#        - jasper-devel
+#        - libpng-devel
+#
+#    - name: Download NetCDF
+#      command: creates=~/netcdf-4.3.3.1.tar.gz chdir=~/ wget -T 40  ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.3.1.tar.gz
+#
+#    - name: Download NetCDF Fortran
+#      command: creates=~/netcdf-fortran-4.4.2.tar.gz chdir=~/ wget -T 40  ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.4.2.tar.gz
+#
+#    - name: Download WRF
+#      command: creates=~/WRFV3.7.1.TAR.gz chdir=~/ wget -T 40  http://www2.mmm.ucar.edu/wrf/src/WRFV3.7.1.TAR.gz
+#
+#    - name: Download WPS
+#      command: creates=~/WPSV3.7.1.TAR.gz chdir=~/ wget -T 40  http://www2.mmm.ucar.edu/wrf/src/WPSV3.7.1.TAR.gz
+#
+#    - name: Download WPS Data 30KM
+#      command: creates=~/wps_30km.tar.gz chdir=~/ wget -T 40  http://www2.mmm.ucar.edu/wrf/src/data/wps_30km.tar.gz
+#
+#    - name: Download WPS Data 4 Jan 
+#      command: creates=~/real4jan00.tar.gz chdir=~/ wget -T 40  http://www2.mmm.ucar.edu/wrf/src/data/real4jan00.tar.gz
+#
+#    - name: set NetCDF environment variable
+#      lineinfile: dest=/etc/environment line="NETCDF=/usr/"
+#
+#    - name: set JASPER environment variable
+#      lineinfile: dest=/etc/environment line="JASPERLIB=/usr/lib/"
+#
+#    - name: set JASPER environment variable
+#      lineinfile: dest=/etc/environment line="JASPERINC=/usr/include/"
+
+# for pv (from helper script):
+# rpm -i http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm 
+# 
