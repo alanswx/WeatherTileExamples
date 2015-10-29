@@ -8,4 +8,9 @@ echo $URL$FILE
 wget -N -c $URL$FILE
 
 echo "run command and pass $FILE "
+
+echo "create winds from $FILE "
 ./create_hrrr_winds.sh $FILE
+echo "create radar from $FILE "
+./create_hrrr_radar.sh  $FILE
+
