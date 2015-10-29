@@ -8,3 +8,4 @@ echo $URL$FILE
 wget -N -c $URL$FILE
 
 echo "run command and pass $FILE "
+./create_hrrr_winds.sh $FILE
