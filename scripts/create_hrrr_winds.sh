@@ -17,6 +17,8 @@ wgrib2 $GRIBNAME  -wind_speed WND.grib2
 gdaldem color-relief -b 2 WND.grib2 -alpha palettes/grey_uv.txt -of GTiff output/hrrr_speed_10.tiff
 python ./gdal2tiles.py -r bilinear  output/hrrr_speed_10.tiff output/hrrr_speed_tiles
 
+rm WND.grib2*
+
 gdaldem color-relief -b 15 $GRIBNAME  -alpha palettes/grey_uv.txt -of GTiff output/hrrr_v_10.tiff
 gdaldem color-relief -b 14 $GRIBNAME  -alpha palettes/grey_uv.txt -of GTiff output/hrrr_u_10.tiff
 gdaldem color-relief -b 15 $GRIBNAME  -alpha palettes/grey_uv.txt -of GTiff output/hrrr_v_10.tiff
