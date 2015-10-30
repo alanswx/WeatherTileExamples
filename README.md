@@ -43,6 +43,7 @@ What do you end up with?
 * wind vectors split by component. Take a look at this page for more information: [Wind: u and v Components](http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html)
 * hrrr_u_tiles - a tileset of the u vector of the wind  ![HRR Wind ScreenShot](/examplescreenshots/hrrrwind.png)
 * hrrr_v_tiles - a tileset of the v vector of the wind
+* hrrr_speed_tiles - a tileset of the speed of the wind
 * mrms - a radar tileset from mrms data ![MRMS Radar ScreenShot](/examplescreenshots/mrmsradar.png)
 
 
