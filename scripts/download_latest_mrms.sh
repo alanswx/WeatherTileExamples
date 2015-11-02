@@ -19,7 +19,7 @@ wget -N -c -P data  $URL$FILE2
 echo "run command and pass data/$FILE "
 
 echo "create radar from data/$FILE "
-./create_mrms_tiles.sh data/$FILE output/mrms
+./create_mrms_tiles.sh data/$FILE output/mrms data/$FILE2
 
 URL=http://mrms.ncep.noaa.gov/data/2D/NLDN_LightningDensity_030_min/
 echo $URL
