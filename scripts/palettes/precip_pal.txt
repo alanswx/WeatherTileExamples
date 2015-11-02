@@ -1,0 +1,32 @@
+#
+# Table from: https://www.nssl.noaa.gov/projects/mrms/operational/tables.php
+#
+nv 0 255  0 0
+# -3 no coverage
+-3 0 255  0 0
+# 0 no precip
+0  0 255  0 0
+# 1 warm stratiform rain
+1  8       179     15  255 
+# 2 warm stratiform rain
+2  8       179     15  255
+# 3 snow
+3 255     255     255  255
+# 4 snow
+4 255     255     255  255
+# 5 reserved for future use
+5  0 0 0 0
+# 6 convective rain
+6 8       179     15  255
+# 7 rain mixed with hail
+7 8       179     15  255
+# 8 reserved for future use
+8 0 0 0 0
+# 9 flag no longer used
+9 0 0 0 0
+# 10 cold stratiform rain
+10 8       179     15  255
+# 91 tropical/stratiform mix
+91 8       179     15  255
+# 96 tropical/stratiform mix
+96 8       179     15  255
