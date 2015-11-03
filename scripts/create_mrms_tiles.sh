@@ -31,7 +31,7 @@ gdaldem color-relief $file2  -alpha palettes/precip_snow_only.txt -of VRT snow_m
 # create two images - one with the rain palette one with the snow palette (we will merge them later)
 #
 gdaldem color-relief  $file  -alpha palettes/radar_pal.txt -of VRT rain.vrt 
-gdaldem color-relief  $file  -alpha palettes/precipsnow_pal.txt -of VRT snow.vrt 
+gdaldem color-relief  $file  -alpha palettes/t2m_pal.txt -of VRT snow.vrt 
 
 #
 # pull only the alpha layer out of the mask (we could probably skip this step with a better palette?)
@@ -61,6 +61,7 @@ gdal_translate snowstack.vrt -mask 4 -of GTiff snow.tif
 
 # overlay the snow on top of the rain
 gdalwarp rainstack.vrt snow.tif   -of GTiff rainsnow.tif
+#gdalwarp rainstack.vrt snowstack.vrt    -of GTiff rainsnow.tif
 # create tiles
 python ./gdal2tiles.py -r bilinear  rainsnow.tif $2 
 
