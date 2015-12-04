@@ -5,30 +5,33 @@
 # $2 is the output directory
 # $3 is the precip type
 
+#
 # check to see if the file ends in gzip
 #   if gzip, use the virtual file system so we don't have to uncompress the file
+#### WE DON'T NEED TO GUNZIP - WILL USE zcat BELOW
 file="$1"
-if [ ${file: -3} == ".gz" ]
-then
-  file=/vsigzip/${file}
-fi
+#if [ ${file: -3} == ".gz" ]
+#then
+#  file=/vsigzip/${file}
+#fi
 
 file2="$3"
-if [ ${file2: -3} == ".gz" ]
-then
-  file2=/vsigzip/${file2}
-fi
+#### WE DON'T NEED TO GUNZIP - WILL USE zcat BELOW
+#if [ ${file2: -3} == ".gz" ]
+#then
+#  file2=/vsigzip/${file2}
+#fi
 
 
-echo "file:"
-echo $file
-echo "file2:"
-echo $file2
+#echo "file:"
+#echo $file
+#echo "file2:"
+#echo $file2
 
 #
 # create a new grib that has both the precip flag (file2) and the seamless HSR on it (file)
 #
-cat $file2 $file > input.grib2 
+zcat $file2 $file > input.grib2 
 
 #
 # run wgrib2 to create a synthetic grib that has the snow field with the reflectivity + 200
