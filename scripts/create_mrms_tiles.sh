@@ -28,7 +28,7 @@ echo $file2
 #
 # create a new grib that has both the precip flag (file2) and the seamless HSR on it (file)
 #
-cat $file2 $file input.grib2 
+cat $file2 $file > input.grib2 
 
 #
 # run wgrib2 to create a synthetic grib that has the snow field with the reflectivity + 200
