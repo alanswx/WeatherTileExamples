@@ -20,77 +20,43 @@ then
 fi
 
 
-#
-# create the rain and snow mask useing the precip type
-#
-
-gdaldem color-relief $file2  -alpha palettes/precip_rain_only.txt -of VRT rain_mask.vrt
-gdaldem color-relief $file2  -alpha palettes/precip_snow_only.txt -of VRT snow_mask.vrt
+echo "file:"
+echo $file
+echo "file2:"
+echo $file2
 
 #
-# create two images - one with the rain palette one with the snow palette (we will merge them later)
+# create a new grib that has both the precip flag (file2) and the seamless HSR on it (file)
 #
-gdaldem color-relief  $file  -alpha palettes/radar_pal.txt -of VRT rain.vrt 
-gdaldem color-relief  $file  -alpha palettes/t2m_pal.txt -of VRT snow.vrt 
-
-#
-# pull only the alpha layer out of the mask (we could probably skip this step with a better palette?)
-#
-
-gdal_translate -b 4 snow_mask.vrt -of GTiff snow_mask.tif
-gdal_translate -b 4 rain_mask.vrt -of GTiff rain_mask.tif
+cat $file2 $file input.grib2 
 
 #
-# pull apart the individual bands, so we can restack them with a new alpha
+# run wgrib2 to create a synthetic grib that has the snow field with the reflectivity + 200
 #
-gdal_translate -b 1 rain.vrt -of GTiff rainband1.tif
-gdal_translate -b 2 rain.vrt -of GTiff rainband2.tif
-gdal_translate -b 3 rain.vrt -of GTiff rainband3.tif
+wgrib2 input.grib2  -if ":*:.*:.*parmcat=6.*:" -rpn sto_1 -fi  -if ":*:.*:.*parmcat=8.*:" -rpn sto_2 -fi -if_reg '1:2' -rpn "rcl_1:3
+:==:rcl_1:4:==:+:200:*:rcl_2:+"  -set_var REFD -grib_out new.grib2
 
-gdal_translate -b 1 snow.vrt -of GTiff snowband1.tif
-gdal_translate -b 2 snow.vrt -of GTiff snowband2.tif
-gdal_translate -b 3 snow.vrt -of GTiff snowband3.tif
+#RPN:
+# store precip type flag in register 1
+# store radar value in register 2
+# precip == 3 or precip == 4 (get 1 for everything where precip is 3 or 4, 0 for everything else)
+# multiple precip flag by 200 - 0 for everything where it isn't snow, 200 where there is snow
+# rain + the last value will finish it off -- so we end up with 200+ reflectivity in places where it is snowing
 
-# create a new stack with the rain and snow mask as the alpha
 
-gdalbuildvrt -separate rainstack.vrt rainband1.tif rainband2.tif rainband3.tif rain_mask.tif
-gdalbuildvrt -separate snowstack.vrt snowband1.tif snowband2.tif snowband3.tif snow_mask.tif
+# now we just need a palette that has rain in the beginning, and is duplicated again to have snow in the top part
 
-# not sure we need this step?
-gdal_translate snowstack.vrt -mask 4 -of GTiff snow.tif
+gdaldem color-relief  new.grib2  -alpha palettes/radar_pal.txt -of VRT now.vrt 
 
-# overlay the snow on top of the rain
-gdalwarp rainstack.vrt snow.tif   -of GTiff rainsnow.tif
-#gdalwarp rainstack.vrt snowstack.vrt    -of GTiff rainsnow.tif
 # create tiles
-python ./gdal2tiles.py -r bilinear  rainsnow.tif $2 
-
-# remove temporary files
-rm rain.vrt
-rm snow.vrt
-rm rainband?.tif
-rm rainband?.tif.aux.xml
-rm snowband?.tif
-rm snowband?.tif.aux.xml
-rm rain_mask.tif
-rm snow_mask.tif
-rm rainsnow.tif
-
-rm snow_mask.vrt
-rm rain_mask.vrt
-
-rm snow_mask.tif.aux.xml
-rm rain_mask.tif.aux.xml
-rm snowstack.vrt
-rm rainstack.vrt
-rm snow.tif
-rm snow.tif.msk
+python ./gdal2tiles.py -r bilinear  -z 0-9 now.vrt $2 
 
 
-#gdaldem color-relief  $file  -alpha palettes/radar_pal.txt -of VRT now.vrt 
-#python ./gdal2tiles.py -r bilinear  -z 0-9 now.vrt $2 
 #python ./gdal2tiles.py -r bilinear  now.vrt $2 
 #echo $1 > $2/source.txt
-#rm now.vrt
+
+rm input.grib2
+rm new.grib2
+rm now.vrt
 
 
