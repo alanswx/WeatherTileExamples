@@ -49,7 +49,7 @@ wgrib2 input.grib2  -if ":*:.*:.*parmcat=6.*:" -rpn sto_1 -fi  -if ":*:.*:.*parm
 
 # now we just need a palette that has rain in the beginning, and is duplicated again to have snow in the top part
 
-gdaldem color-relief  new.grib2  -alpha palettes/radar_pal.txt -of VRT now.vrt 
+gdaldem color-relief  new.grib2  -alpha palettes/radar_rainsnow_pal.txt -of VRT now.vrt 
 
 # create tiles
 python ./gdal2tiles.py -r bilinear  -z 0-9 now.vrt $2 
