@@ -18,7 +18,8 @@ wgrib2 $GRIBNAME  -match ":(CSNOW|REFD):(surface|1000 m above ground):15 min"  -
 
 
 #gdaldem color-relief -b 83 $GRIBNAME -alpha palettes/radar_pal.txt -of VRT output/hrrr.vrt
-gdaldem color-relief -b 83 new.grib2 -alpha palettes/radar_rainsnow_pal.txt -of VRT output/hrrr.vrt
+gdaldem color-relief new.grib2 -alpha palettes/radar_rainsnow_pal.txt -of VRT output/hrrr.vrt
 #python ./gdal2tiles.py -r bilinear  -z 0-9 output/hrrr.vrt output/hrrr
 python ./gdal2tiles.py -r bilinear  output/hrrr.vrt output/hrrr
 rm -f output/hrrr.vrt
+rm new.grib2
