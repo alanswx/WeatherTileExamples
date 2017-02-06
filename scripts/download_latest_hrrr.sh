@@ -3,7 +3,7 @@
 mkdir -p data
 mkdir -p output
 
-URL=http://nomads.ncep.noaa.gov/pub/data/nccf/nonoperational/com/hrrr/prod/
+URL=http://nomads.ncep.noaa.gov/pub/data/nccf/com/hrrr/prod/
 DATE=`curl "$URL" | grep "href=\"h" | tail -n 1 | cut -f 2 -d \"`
 URL=$URL$DATE
 echo $URL
