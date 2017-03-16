@@ -61,4 +61,4 @@ gdaldem color-relief  conusnew.grib2  -alpha palettes/radar_pal.txt -of PNG $2
 rm conusinput.grib2
 rm conusnew.grib2
 rm conusnow.vrt
-
+rm conusnew.grib2.aux.xml

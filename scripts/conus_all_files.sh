@@ -14,6 +14,5 @@ do
      THECMD="./create_mrms_rain_conus.sh $file output/conus/CONUS_$DATE.png $PRECIP"
      echo $THECMD
      `$THECMD`
-     exit
    done
 done
