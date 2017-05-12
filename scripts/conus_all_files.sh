@@ -11,8 +11,11 @@ do
      echo $PRECIP
      DATE=`echo $file | cut -f 4 -d _ | cut -f 1 -d .`
 
-     THECMD="./create_mrms_rain_conus.sh $file output/conus/CONUS_$DATE.png $PRECIP"
-     echo $THECMD
-     `$THECMD`
+     # check to see if output file already exists, and skip
+     if [ ! -f  output/conus/CONUS_$DATE.png  ]; then
+       THECMD="./create_mrms_rain_conus.sh $file output/conus/CONUS_$DATE.png $PRECIP"
+       echo $THECMD
+       `$THECMD`
+     fi
    done
 done
