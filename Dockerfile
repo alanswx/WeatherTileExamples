@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Update Ubuntu Software repository
-RUN apt-get update && apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common wget
 RUN add-apt-repository ppa:ubuntugis/ppa && apt-get update
 
 RUN apt-get install -y gdal-bin libgdal-dev gfortran 
