@@ -14,7 +14,7 @@ fi
 
 gdaldem color-relief  $file  -alpha palettes/lightning.txt -of VRT now.vrt 
 #python ./gdal2tiles.py -r bilinear  -z 0-9 now.vrt $2 
-python ./gdal2tiles.py -r bilinear  now.vrt $2 
+python3 ./gdal2tiles.py -r bilinear  now.vrt $2 
 #echo $1 > $2/source.txt
 rm now.vrt
 
