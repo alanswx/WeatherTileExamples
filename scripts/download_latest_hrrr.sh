@@ -3,13 +3,25 @@
 mkdir -p data
 mkdir -p output
 
-URL=http://nomads.ncep.noaa.gov/pub/data/nccf/com/hrrr/prod/
-DATE=`curl "$URL" | grep "href=\"h" | tail -n 1 | cut -f 2 -d \"`
-URL=$URL$DATE
-echo $URL
-FILE=`curl $URL | grep "wrfsubhf01.grib2" | grep -v "idx" | tail -n 1 | cut -f 2 -d \"`
-echo $URL$FILE
-wget -N -c -P data $URL$FILE
+# HRRR file format:
+# hrrr.$DATE/$LOC/hrrr.t${HR}z.$GRID$FP.grib2
+# DATE - (YYYYMMDD) - the date the forecast was run in UTC
+# LOC - alaska | conus
+# HR - (HH) - the hour the forecast was run in UTC
+# GRID - wrfprs | wrfnat | wrfsfc | wrfsub
+# FP - (HH) - the forecast period. 00 - 36
+LOC=conus
+GRID=wrfsubhf
+FP=01
+
+BASE=https://nomads.ncep.noaa.gov/pub/data/nccf/com/hrrr/prod/
+DATE=`curl $BASE | grep "href=\"h" | tail -n 1 | cut -f 2 -d \" | cut -c6-13`
+LATEST="/hrrr.$DATE/$LOC/"
+URL="$BASE$LATEST"
+
+HR=`curl $URL | grep "$GRID$FP.grib2" | grep -v "idx" | tail -n 1 | cut -f 2 -d \" | cut -c7-8`
+FILE="hrrr.t${HR}z.$GRID$FP.grib2"
+wget -N -c -P data "$URL$FILE"
 
 echo "run command and pass data/$FILE "
 
