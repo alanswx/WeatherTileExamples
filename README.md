@@ -40,7 +40,7 @@ What do you end up with?
 
 #### `output` directory
 * hrrr - a directory that has a tileset of the composite reflectivity plotted with alpha, that looks like future radar ![HRR Wind ScreenShot](/examplescreenshots/hrrrradar.png)
-* wind vectors split by component. Take a look at this page for more information: [Wind: u and v Components](http://wx.gmu.edu/dev/clim301/lectures/wind/wind-uv.html)
+* wind vectors split by component. Take a look at this page for more information: [Wind: u and v Components](http://colaweb.gmu.edu/dev/clim301/lectures/wind/wind-uv)
 * hrrr_u_tiles - a tileset of the u vector of the wind  ![HRR Wind ScreenShot](/examplescreenshots/hrrrwind.png)
 * hrrr_v_tiles - a tileset of the v vector of the wind
 * hrrr_speed_tiles - a tileset of the speed of the wind ![HRR Wind ScreenShot](/examplescreenshots/hrrrwindspeed.png)
